@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: cron
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: cron
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: busybox
+            name: cron
+            resources: {}
+            command: ['sh', '-c', 'echo 40daysofkubernetes']
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}
