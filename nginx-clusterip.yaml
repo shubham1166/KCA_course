@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: nginx-clusterip
 spec:
+  matchLabels:
+    app: v1
   ports:
   - port: 80
     targetPort: 80
